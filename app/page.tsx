@@ -1,7 +1,8 @@
 import ToolCard from "@/components/ToolCard";
 import { TOOLS } from "@/lib/tools";
-import { SITE } from "@/lib/site";
+import { SITE, MONETAG } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
+import MonetagBanner from "@/components/third-parties/MonetagBanner";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
         }}
       />
 
+      {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 py-14 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
           Free Online Utility Tools
@@ -26,6 +28,12 @@ export default function HomePage() {
         </p>
       </section>
 
+      {/* 📢 Banner Ad — hero ke neeche, tools grid se upar */}
+      <div className="mx-auto max-w-6xl px-4">
+        <MonetagBanner zoneId={MONETAG.bannerZoneId} minHeight={100} />
+      </div>
+
+      {/* Tools Grid */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="mb-6 text-xl font-semibold text-foreground">
           All Tools

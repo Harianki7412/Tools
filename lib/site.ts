@@ -9,8 +9,8 @@ export const SITE = {
 
 export const MONETAG = {
   /** Global Multitag zone (popunder, push) — layout.tsx mein load hota hai */
-  globalZoneId: "YOUR_GLOBAL_ZONE_ID",
+  globalZoneId: "12112852",
 
   /** Homepage banner zone — alag se create karein */
-  bannerZoneId: "YOUR_BANNER_ZONE_ID",
+  bannerZoneId: "12112852",
 };

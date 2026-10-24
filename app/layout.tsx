@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MonetagScript from "@/components/third-parties/MonetagScript";
-import { SITE, MONETAG_ZONE_ID } from "@/lib/site";
+import { SITE, MONETAG } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -33,7 +33,7 @@ export default function RootLayout({
         <Footer />
 
         {/* Monetag Script — Zone ID apne dashboard se daalein */}
-        <MonetagScript zoneId="12112852" />
+        <MonetagScript zoneId={MONETAG.globalZoneId} />
       </body>
     </html>
   );
