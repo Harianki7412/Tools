@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Primary Brand Color */
+  --color-primary: #2563eb;
+  --color-primary-foreground: #ffffff;
+  --color-primary-hover: #1d4ed8;
+
+  /* Secondary */
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+
+  /* Background & Foreground */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+
+  /* Muted */
+  --color-muted: #f8fafc;
+  --color-muted-foreground: #64748b;
+
+  /* Border & Input */
+  --color-border: #e2e8f0;
+  --color-input: #cbd5e1;
+
+  /* Focus Ring */
+  --color-ring: #2563eb;
+
+  /* Radius */
+  --radius-card: 0.75rem;
+  --radius-button: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Ad container — reserves space so layout doesn't jump */
+  .ad-container {
+    @apply mx-auto my-6 flex min-h-[100px] w-full max-w-4xl items-center justify-center overflow-hidden rounded-lg border border-dashed border-border bg-muted;
+  }
+
+  /* Pre output box */
+  .tool-output-pre {
+    @apply max-h-96 overflow-auto whitespace-pre-wrap break-words rounded-md bg-gray-900 p-4 font-mono text-sm text-green-300;
+  }
 }
