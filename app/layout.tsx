@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MonetagScript from "@/components/third-parties/MonetagScript";
-import { SITE, MONETAG } from "@/lib/site";
+import { SITE, MONETAG, isZoneValid } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -25,16 +25,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const globalZone = isZoneValid(MONETAG.globalZoneId)
+    ? MONETAG.globalZoneId
+    : "";
+
   return (
     <html lang="en">
       <body>
         <Header />
-        <meta name="monetag" content="4aa723a2e244527c14c398beb7136e25"></meta>
         <main className="min-h-[60vh]">{children}</main>
         <Footer />
 
-        {/* Monetag Script — Zone ID apne dashboard se daalein */}
-        <MonetagScript zoneId={MONETAG.globalZoneId} />
+        {/* Global Multitag — only loads if zone ID is set and valid */}
+        {globalZone && (
+          <MonetagScript zoneId={globalZone} src={MONETAG.scriptUrl} />
+        )}
       </body>
     </html>
   );

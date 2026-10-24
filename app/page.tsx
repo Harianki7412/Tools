@@ -1,10 +1,14 @@
 import ToolCard from "@/components/ToolCard";
 import { TOOLS } from "@/lib/tools";
-import { SITE, MONETAG } from "@/lib/site";
+import { SITE, MONETAG, isZoneValid } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
 import MonetagBanner from "@/components/third-parties/MonetagBanner";
 
 export default function HomePage() {
+  const bannerZone = isZoneValid(MONETAG.bannerZoneId)
+    ? MONETAG.bannerZoneId
+    : "";
+
   return (
     <>
       <JsonLd
@@ -28,9 +32,13 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* 📢 Banner Ad — hero ke neeche, tools grid se upar */}
+      {/* 📢 Banner Ad — hero ke neeche */}
       <div className="mx-auto max-w-6xl px-4">
-        <MonetagBanner zoneId={MONETAG.bannerZoneId} minHeight={100} />
+        <MonetagBanner
+          zoneId={bannerZone}
+          minHeight={250}
+          src={MONETAG.scriptUrl}
+        />
       </div>
 
       {/* Tools Grid */}
