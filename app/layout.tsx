@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import GoogleAdsense from "@/components/third-parties/GoogleAdsense";
-import { SITE, ADSENSE } from "@/lib/site";
+import MonetagScript from "@/components/third-parties/MonetagScript";
+import { SITE, MONETAG_ZONE_ID } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -31,7 +31,9 @@ export default function RootLayout({
         <Header />
         <main className="min-h-[60vh]">{children}</main>
         <Footer />
-        <GoogleAdsense pId={ADSENSE.publisherId} />
+
+        {/* Monetag Script — Zone ID apne dashboard se daalein */}
+        <MonetagScript zoneId="12112852" />
       </body>
     </html>
   );

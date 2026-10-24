@@ -1,6 +1,7 @@
 import { Tool } from "../types";
 import { asString } from "../utils";
 
+
 export const ageCalculator: Tool = {
   slug: "age-calculator",
   name: "Age Calculator",

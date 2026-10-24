@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import { TOOLS, getTool } from "@/lib/tools";
 import ToolRunner from "@/components/ToolRunner";
 import JsonLd from "@/components/JsonLd";
-import AdSlot from "@/components/third-parties/AdSlot";
-import { SITE, ADSENSE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import type { ToolMetadata } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -112,22 +111,10 @@ export default async function ToolPage({
       <h1 className="text-3xl font-bold text-foreground">{tool.name}</h1>
       <p className="mt-2 text-muted-foreground">{tool.description}</p>
 
-      {/* AD #1: Above tool (leaderboard) */}
-      <AdSlot
-        client={ADSENSE.publisherId}
-        slot={ADSENSE.slots.leaderboardTop}
-        format="horizontal"
-      />
-
       {/* Tool itself */}
-      <ToolRunner toolMetadata={metadataForClient} />
-
-      {/* AD #2: Below output */}
-      <AdSlot
-        client={ADSENSE.publisherId}
-        slot={ADSENSE.slots.belowOutput}
-        format="auto"
-      />
+      <div className="mt-6">
+        <ToolRunner toolMetadata={metadataForClient} />
+      </div>
 
       {/* How to use */}
       <section className="mt-10">

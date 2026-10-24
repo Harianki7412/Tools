@@ -1,8 +1,7 @@
 import ToolCard from "@/components/ToolCard";
 import { TOOLS } from "@/lib/tools";
-import { SITE, ADSENSE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
-import AdSlot from "@/components/third-parties/AdSlot";
 
 export default function HomePage() {
   return (
@@ -26,15 +25,6 @@ export default function HomePage() {
           runs on your device.
         </p>
       </section>
-
-      {/* Top leaderboard ad */}
-      <div className="mx-auto max-w-6xl px-4">
-        <AdSlot
-          client={ADSENSE.publisherId}
-          slot={ADSENSE.slots.leaderboardTop}
-          format="horizontal"
-        />
-      </div>
 
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="mb-6 text-xl font-semibold text-foreground">

@@ -7,12 +7,10 @@ export const SITE = {
   twitter: "@toolkitpro",
 };
 
-// ⚠️ Replace with your real AdSense IDs (from adsense.google.com, NOT admob)
-export const ADSENSE = {
-  publisherId: "ca-app-pub-6318800101498597/7598435678", // AdSense publisher ID
-  slots: {
-    leaderboardTop: "0000000000",
-    belowOutput: "1111111111",
-    sidebar: "2222222222",
-  },
+export const MONETAG = {
+  /** Global Multitag zone (popunder, push) — layout.tsx mein load hota hai */
+  globalZoneId: "YOUR_GLOBAL_ZONE_ID",
+
+  /** Homepage banner zone — alag se create karein */
+  bannerZoneId: "YOUR_BANNER_ZONE_ID",
 };
