@@ -29,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <meta name="monetag" content="4aa723a2e244527c14c398beb7136e25"></meta>
         <main className="min-h-[60vh]">{children}</main>
         <Footer />
 
